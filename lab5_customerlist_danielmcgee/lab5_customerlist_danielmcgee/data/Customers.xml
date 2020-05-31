@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Customers>
+    <Customer>
+        <Id>2</Id>
+        <FirstName>nobody</FirstName>
+        <LastName>nowhergmail</LastName>
+        <Email>nowhergmail</Email>
+        <Phone>2224767878</Phone>
+    </Customer>
+    <Customer>
+        <Id>4</Id>
+        <FirstName>customer</FirstName>
+        <LastName>4</LastName>
+        <Email>4</Email>
+        <Phone>444444444</Phone>
+    </Customer>
+    <Customer>
+        <Id>5</Id>
+        <FirstName>customer</FirstName>
+        <LastName>5</LastName>
+        <Email>5</Email>
+        <Phone>5555555555</Phone>
+    </Customer>
+    <Customer>
+        <Id>456</Id>
+        <FirstName>l</FirstName>
+        <LastName>wutevregmail</LastName>
+        <Email>wutevregmail</Email>
+        <Phone>567567567</Phone>
+    </Customer>
+    <Customer>
+        <Id>899</Id>
+        <FirstName>Nobody</FirstName>
+        <LastName>wutewdeawdvregmail</LastName>
+        <Email>wutewdeawdvregmail</Email>
+        <Phone>0957986</Phone>
+    </Customer>
+</Customers>
