@@ -65,5 +65,10 @@ namespace lab5_customerlist_danielmcgee
                                     return String.Format("Email: {0} First name: {1} Identification: {2} Last name: {3:C} Phone: {4}", email, firstName, id, lastName, phone);
                         }
 
+                        public override int GetHashCode()
+                        {
+                                    return new { Email,FirstName,Id,LastName,Phone}.GetHashCode();
+                        }
+
             }
 }

@@ -9,25 +9,22 @@ namespace lab5_customerlist_danielmcgee
             class CustomerList
             {
                         private List<Customer> customerList;
-                        private int customerCount;
 
                         public CustomerList()
                         {
                                     customerList = new List<Customer>();
-                                    customerCount = 0;
                         }
 
                         public CustomerList(List<Customer> cList)
                         {
                                     customerList = cList;
-                                    customerCount = cList.Count;
                         }
 
                         public int CustomerCount
                         {
                                     get
                                     {
-                                                return customerCount;
+                                                return customerList.Count;
                                     }
                         }
 
@@ -36,21 +33,21 @@ namespace lab5_customerlist_danielmcgee
                                    
                                     get
                                     {
-                                                if (index < 0 || index >= customerCount)
-                                                            return null;
+                                                if (index < 0 || index >= CustomerCount)
+                                                            throw new System.IndexOutOfRangeException();
                                                 return customerList[index];
                                     }
                                     set
                                     {
-                                                if (index < 0 || index >= customerCount)
-                                                            return;
+                                                if (index < 0 || index >= CustomerCount)
+                                                            throw new System.IndexOutOfRangeException();
                                                 customerList[index] = value;
                                     }
                         }
 
                         public static CustomerList operator +(CustomerList a, Customer b)
                         {
-                                    if (!a.customerList.Contains(b))
+                                    if (a.FindByEmail(b.Email) != null)
                                     {
                                                 a.Add(b);
                                     }
@@ -59,7 +56,7 @@ namespace lab5_customerlist_danielmcgee
 
                         public static CustomerList operator -(CustomerList a, Customer b)
                         {
-                                    if (a.customerList.Contains(b))
+                                    if (a.FindByEmail(b.Email) != null)
                                     { 
                                                 a.Remove(b);
                                     }
@@ -69,14 +66,14 @@ namespace lab5_customerlist_danielmcgee
                         public Customer Remove(Customer a)
                         {
                                     if (customerList.Contains(a))
-                                                customerList.Remove(a); customerCount--;
+                                                customerList.Remove(a);
                                     return a;
                         }
 
                         public void Add(Customer a)
                         {
                                     if (!customerList.Contains(a))
-                                                customerList.Add(a); customerCount++;
+                                                customerList.Add(a);
                         }
 
                         public void Add(string email,string firstName, int id,string lastName,string phoneNumber)

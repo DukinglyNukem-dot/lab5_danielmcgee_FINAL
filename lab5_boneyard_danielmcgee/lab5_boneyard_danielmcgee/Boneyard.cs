@@ -10,13 +10,12 @@ namespace lab5_boneyard_danielmcgee
             {
                         public List<Domino> dominoBoneyard;
 
-                        private int dominosRemaining;
-
+                        // only get.
                         public int DominosRemaining
                         {
                                     get
                                     {
-                                                return dominosRemaining;
+                                                return dominoBoneyard.Count;
                                     }
                         }
 
@@ -29,45 +28,48 @@ namespace lab5_boneyard_danielmcgee
                                                 for (int b = 0; b <= maxDots; b++)
                                                 {
                                                             dominoBoneyard.Add(new Domino(t,b));
-                                                            dominosRemaining++;
                                                 }
                                     }
                         }
 
+                        // Retrieve or add a domino in the list.
                         public Domino this[int i]
                         {
                                     get
                                     {
-                                                if (i > -1 && i < dominosRemaining)
+                                                if (i > -1 && i < DominosRemaining)
                                                 {
                                                             return dominoBoneyard[i];
-                                                } else return null;
+                                                } else throw new IndexOutOfRangeException();
                                     }
                                     set
                                     {
-                                                if (i > -1 && i < dominosRemaining)
+                                                if (i > -1 && i < DominosRemaining)
                                                 {
                                                             dominoBoneyard[i] = value;
                                                 }
                                     }
                         }
 
+                        // Remove the highest domino in the list and return it.
                         public Domino Draw()
                         {
                                     if (DominosRemaining > 0)
                                     {
-                                                Domino d = dominoBoneyard[dominosRemaining - 1];
+                                                Domino d = dominoBoneyard[DominosRemaining - 1];
                                                 dominoBoneyard.Remove(d);
                                                 return d;
                                     }
-                                    return null;
+                                    throw new Exception("Could not find a domino.");
                         }
 
+                        // Is the domino boneyard empty?
                         public bool IsEmpty()
                         {
                                     return (DominosRemaining == 0) ? true : false;
                         }
 
+                        // Shuffle around all the dominos.
                         public void Shuffle()
                         {
                                     if (DominosRemaining == 2)
@@ -89,6 +91,7 @@ namespace lab5_boneyard_danielmcgee
                                     }
                         }
 
+                        // Get the information of all the dominos.
                         public override string ToString()
                         {
                                     string result = "";
